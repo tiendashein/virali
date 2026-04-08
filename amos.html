@@ -1,37 +1,81 @@
-<video id="video" controls playsinline>
-  <source src="https://vidcool2.org/videos/w2.mp4" type="video/mp4">
-</video>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  height: 100%;
+  max-width: 100%;
+  background: #000;
+}
+
+/* BOTÓN (COLOR CAMBIADO) */
+#playBtn {
+  position: absolute;
+  padding: 16px 30px;
+  background: #00c853; /* NUEVO COLOR */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  transition: 0.2s;
+}
+
+#playBtn:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <video id="video" controls playsinline>
+    <source src="https://vidcool2.org/videos/w1.mp4" type="video/mp4">
+  </video>
+  <button id="playBtn">VER VIDEO</button>
+</div>
 
 <script>
+const playBtn = document.getElementById('playBtn');
 const video = document.getElementById('video');
 
-let adShown = false;
-let endAdShown = false;
+/* BOTÓN VER VIDEO */
+playBtn.addEventListener('click', () => {
 
-/* CLICK EN VIDEO */
-video.addEventListener('click', () => {
+  window.open(
+    'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
+    '_blank'
+  );
 
-  if (!adShown) {
-    adShown = true;
-
-    window.open(
-      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
-      '_blank'
-    );
-  }
-
+  playBtn.style.display = 'none';
   video.play();
-});
 
-/* AL TERMINAR VIDEO */
-video.addEventListener('ended', () => {
-  if (!endAdShown) {
-    endAdShown = true;
-
-    window.open(
-      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
-      '_blank'
-    );
-  }
 });
 </script>
+
+</body>
+</html>
