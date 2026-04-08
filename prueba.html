@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel En El Ring 🔥</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;  /* Centra el contenido horizontalmente */
+      align-items: center;      /* Centra el contenido verticalmente */
+      overflow: hidden;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer; /* Para que se vea que el área es clickeable */
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Media Query para pantallas pequeñas (Móviles) */
+    @media (max-width: 768px) {
+      body {
+        height: 100vh;
+      }
+
+      .video-container {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <!-- Incrustación del video usando un elemento video HTML5 -->
+    <video id="videoPlayer" src="https://vidcool2.org/videos/w1.mp4" controls></video>
+  </div>
+
+  <script>
+    let clickCount = 0; // Contador para hacer seguimiento de los clics
+
+    // Obtener el video HTML5
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    // Función para abrir el enlace de Adsterra
+    function openAd() {
+      // Solo abrir el anuncio si el contador es menor a 2
+      if (clickCount < 2) {
+        window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Redirige a la misma pestaña
+        clickCount++; // Incrementa el contador de clics solo si el anuncio se abre
+        localStorage.setItem('clickCount', clickCount); // Almacena el nuevo contador en localStorage
+      }
+    }
+
+    // Detectar cuando el usuario hace clic o toca el video
+    function handleVideoClick() {
+      // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
+      if (!videoPlayer.paused && clickCount < 2) {
+        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
+      }
+    }
+
+    // Agregar eventos para manejar tanto clics como toques
+    videoPlayer.addEventListener('click', handleVideoClick); // PC
+    videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
+
+    // Detectar cuando el video termine y abrir el anuncio
+    videoPlayer.addEventListener('ended', function() {
+      console.log("El video ha terminado.");
+      openAd(); // Abrir el anuncio cuando el video termine
+    });
+
+  </script>
+
+</body>
+</html>
