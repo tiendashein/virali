@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+video {
+  height: 100%;
+  max-width: 100%;
+  background: #000;
+}
+
+#playBtn {
+  position: absolute;
+  padding: 16px 30px;
+  background: #e60000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#downloadBtn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 22px;
+  cursor: pointer;
+  z-index: 9999;
+  background: #00c853;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0,200,83,.9);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <video id="video" controls playsinline>
+    <source src="https://vidcool2.org/videos/w1.mp4" type="video/mp4">
+  </video>
+  <button id="playBtn">VER VIDEO</button>
+</div>
+
+<a id="downloadBtn" href="https://vidcool2.org/videos/w1.mp4" download>
+  ⬇ DESCARGAR VIDEO
+</a>
+
+<script>
+const playBtn = document.getElementById('playBtn');
+const video = document.getElementById('video');
+const downloadBtn = document.getElementById('downloadBtn');
+
+// Click claro del usuario → reproducir
+playBtn.addEventListener('click', () => {
+  playBtn.style.display = 'none';
+  video.play();
+  downloadBtn.style.display = 'block';
+});
+
+// SIN popups automáticos
+// SIN múltiples pasos
+// SIN eventos en pause
+</script>
+
+</body>
+</html>
