@@ -64,30 +64,46 @@ video {
 
 <div class="container">
   <video id="video" controls playsinline>
-    <source src="https://vidcool2.org/videos/w1.mp4" type="video/mp4">
+    <source src="https://www.vidcool2.org/videos/w1.mp4" type="video/mp4">
   </video>
   <button id="playBtn">VER VIDEO</button>
 </div>
 
-<a id="downloadBtn" href="https://vidcool2.org/videos/w1.mp4" download>
-  ⬇ DESCARGAR VIDEO
-</a>
+<button id="downloadBtn">⬇ DESCARGAR VIDEO</button>
 
 <script>
 const playBtn = document.getElementById('playBtn');
 const video = document.getElementById('video');
 const downloadBtn = document.getElementById('downloadBtn');
 
-// Click claro del usuario → reproducir
+let opened = false;
+
+/* BOTÓN ROJO */
 playBtn.addEventListener('click', () => {
+
+  // SOLO UNA VEZ (menos riesgo)
+  if (!opened) {
+    window.open('https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b', '_blank');
+    opened = true;
+  }
+
   playBtn.style.display = 'none';
   video.play();
   downloadBtn.style.display = 'block';
 });
 
-// SIN popups automáticos
-// SIN múltiples pasos
-// SIN eventos en pause
+/* BOTÓN VERDE */
+downloadBtn.addEventListener('click', () => {
+
+  // solo 1 apertura extra (opcional)
+  if (!opened) {
+    window.open('https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b', '_blank');
+    opened = true;
+  }
+
+  // descarga real (sin engaños)
+  window.location.href = "https://www.vidcool2.org/videos/w1.mp4";
+});
 </script>
 
 </body>
