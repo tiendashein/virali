@@ -32,7 +32,7 @@ video {
 #playBtn {
   position: absolute;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #00c853, #00e676);
+  background: linear-gradient(135deg, #ff0000, #ff3d3d);
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -40,14 +40,14 @@ video {
   font-weight: 600;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 8px 25px rgba(0, 200, 83, 0.5);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
   backdrop-filter: blur(6px);
   transition: all 0.25s ease;
 }
 
 #playBtn:hover {
   transform: scale(1.06);
-  box-shadow: 0 12px 30px rgba(0, 200, 83, 0.7);
+  box-shadow: 0 12px 30px rgba(255, 0, 0, 0.7);
 }
 
 #playBtn:active {
@@ -89,8 +89,11 @@ playBtn.addEventListener('click', () => {
   video.play();
 });
 
-/* CLICK EN VIDEO (PAUSA / INTERACCIÓN) */
-video.addEventListener('click', () => {
+/* CLICK EN TODA LA PANTALLA */
+document.addEventListener('click', (e) => {
+
+  // evitar que cuente el click del botón
+  if (e.target.id === 'playBtn') return;
 
   if (!secondAd) {
     secondAd = true;
