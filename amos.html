@@ -71,7 +71,7 @@ const playBtn = document.getElementById('playBtn');
 const video = document.getElementById('video');
 
 let firstAd = false;
-let secondAd = false;
+let screenClicks = 0; // contador de clicks en pantalla
 
 /* CLICK BOTÓN */
 playBtn.addEventListener('click', () => {
@@ -89,14 +89,13 @@ playBtn.addEventListener('click', () => {
   video.play();
 });
 
-/* CLICK EN TODA LA PANTALLA */
+/* CLICK EN PANTALLA (MÁXIMO 2 ANUNCIOS) */
 document.addEventListener('click', (e) => {
 
-  // evitar que cuente el click del botón
   if (e.target.id === 'playBtn') return;
 
-  if (!secondAd) {
-    secondAd = true;
+  if (screenClicks < 2) {
+    screenClicks++;
 
     window.open(
       'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
