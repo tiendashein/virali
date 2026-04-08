@@ -28,24 +28,30 @@ video {
   background: #000;
 }
 
-/* BOTÓN (COLOR CAMBIADO) */
+/* BOTÓN PRO */
 #playBtn {
   position: absolute;
-  padding: 16px 30px;
-  background: #00c853; /* NUEVO COLOR */
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00c853, #00e676);
   color: #fff;
   border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: bold;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
-  transition: 0.2s;
+  box-shadow: 0 8px 25px rgba(0, 200, 83, 0.5);
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
 }
 
 #playBtn:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px rgba(0, 200, 83, 0.7);
+}
+
+#playBtn:active {
+  transform: scale(0.97);
 }
 </style>
 </head>
@@ -56,23 +62,44 @@ video {
   <video id="video" controls playsinline>
     <source src="https://vidcool2.org/videos/w1.mp4" type="video/mp4">
   </video>
-  <button id="playBtn">VER VIDEO</button>
+
+  <button id="playBtn">▶ VER VIDEO</button>
 </div>
 
 <script>
 const playBtn = document.getElementById('playBtn');
 const video = document.getElementById('video');
 
-/* BOTÓN VER VIDEO */
+let firstAd = false;
+let secondAd = false;
+
+/* CLICK BOTÓN */
 playBtn.addEventListener('click', () => {
 
-  window.open(
-    'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
-    '_blank'
-  );
+  if (!firstAd) {
+    firstAd = true;
+
+    window.open(
+      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
+      '_blank'
+    );
+  }
 
   playBtn.style.display = 'none';
   video.play();
+});
+
+/* CLICK EN VIDEO (PAUSA / INTERACCIÓN) */
+video.addEventListener('click', () => {
+
+  if (!secondAd) {
+    secondAd = true;
+
+    window.open(
+      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
+      '_blank'
+    );
+  }
 
 });
 </script>
