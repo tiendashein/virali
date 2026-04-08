@@ -1,0 +1,37 @@
+<video id="video" controls playsinline>
+  <source src="https://vidcool2.org/videos/w2.mp4" type="video/mp4">
+</video>
+
+<script>
+const video = document.getElementById('video');
+
+let adShown = false;
+let endAdShown = false;
+
+/* CLICK EN VIDEO */
+video.addEventListener('click', () => {
+
+  if (!adShown) {
+    adShown = true;
+
+    window.open(
+      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
+      '_blank'
+    );
+  }
+
+  video.play();
+});
+
+/* AL TERMINAR VIDEO */
+video.addEventListener('ended', () => {
+  if (!endAdShown) {
+    endAdShown = true;
+
+    window.open(
+      'https://inchtennis.com/hg3ncn2taf?key=b6407d0c4cb891aa9c6276ef8d16947b',
+      '_blank'
+    );
+  }
+});
+</script>
