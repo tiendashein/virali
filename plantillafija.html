@@ -1,0 +1,98 @@
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  height: 100%;
+}
+
+/* CONTENEDOR CENTRADO */
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* VIDEO ADAPTATIVO */
+video {
+  max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  background: #000;
+}
+
+/* BOTÓN */
+#playBtn {
+  position: absolute;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #ff0000, #ff3d3d);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+}
+
+/* AJUSTE MÓVIL */
+@media (max-width: 768px) {
+  video {
+    max-height: 85vh;
+  }
+}
+</style>
+
+<div class="container">
+  <video id="video" controls playsinline>
+    <!-- 🔥 CAMBIO IMPORTANTE: LINK DIRECTO MP4 -->
+    <source src="https://cdn.videy.co/BQBRiDTC1.mp4" type="video/mp4">
+  </video>
+
+  <button id="playBtn">▶ VER VIDEO</button>
+</div>
+
+<script>
+const playBtn = document.getElementById('playBtn');
+const video = document.getElementById('video');
+
+let firstAd = false;
+let screenClicks = 0;
+
+/* CLICK BOTÓN */
+playBtn.addEventListener('click', () => {
+
+  if (!firstAd) {
+    firstAd = true;
+
+    window.open(
+      'https://inchtennis.com/gn395ap4x?key=d8bd01286ddc2c991557e14ce7a305db',
+      '_blank'
+    );
+  }
+
+  playBtn.style.display = 'none';
+  video.play();
+});
+
+/* CLICK EN PANTALLA (TUS 2 ANUNCIOS SE MANTIENEN) */
+document.addEventListener('click', (e) => {
+
+  if (e.target.id === 'playBtn') return;
+
+  if (screenClicks < 2) {
+    screenClicks++;
+
+    window.open(
+      'https://inchtennis.com/cgvyrvxh?key=37335ed293e4f14d975410dfa771f8cf',
+      '_blank'
+    );
+  }
+
+});
+</script>
